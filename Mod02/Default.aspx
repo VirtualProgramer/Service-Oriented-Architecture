@@ -8,8 +8,9 @@
     {
         HttpClient client = new HttpClient();
         client.BaseAddress = new Uri("https://data.taipei/");
-
-        HttpResponseMessage resp = client.GetAsync("opendata/datalist/apiAccess?scope=resourceAquire&rid=a1c35319-c67d-4c7b-86fe-442874cb3d79").Result;
+        
+        string respData = "opendata/datalist/apiAccess?scope=resourceAquire&rid=a1c35319-c67d-4c7b-86fe-442874cb3d79";
+        HttpResponseMessage resp = client.GetAsync(respData).Result;
 
         if (resp.IsSuccessStatusCode)
         {
@@ -25,7 +26,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
